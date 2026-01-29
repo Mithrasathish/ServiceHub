@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Service | ServiceHub</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background:
+                radial-gradient(circle at top, #1a1a1a, #000000),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255,0,85,0.08),
+                    rgba(255,0,85,0.08) 10px,
+                    transparent 10px,
+                    transparent 20px
+                );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .box {
+            width: 420px;
+            padding: 30px;
+            background: linear-gradient(180deg, #111, #050505);
+            border: 2px solid #ff0055;
+            border-radius: 18px;
+            box-shadow:
+                0 0 20px rgba(255,0,85,0.7),
+                0 0 60px rgba(255,0,85,0.3);
+            animation: glow 2.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow:
+                    0 0 20px rgba(255,0,85,0.5),
+                    0 0 40px rgba(255,0,85,0.2);
+            }
+            to {
+                box-shadow:
+                    0 0 30px rgba(255,0,85,0.9),
+                    0 0 70px rgba(255,0,85,0.5);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff0055;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #000;
+            color: #fff;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #00ffaa;
+            box-shadow: 0 0 10px rgba(0,255,170,0.7);
+        }
+
+        select option {
+            background: #000;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 25px;
+            border: none;
+            background: linear-gradient(90deg, #00ffaa, #00cc88);
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #ff0055, #ff3377);
+            box-shadow: 0 0 15px rgba(255,0,85,0.9);
+            transform: scale(1.03);
+        }
+
+        ::placeholder {
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Book Service</h2>
+    {% if message %}
+        <div class="success">{{ message }}</div>
+    {% elif error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+
+    <form method="POST">
+    <input type="text" name="customer_name" placeholder="Your Name" required>
+    <input type="text" name="address" placeholder="Address" required>
+    <input type="text" name="mobile" placeholder="Mobile Number" required>
+
+    <!-- NEW DATE FIELD -->
+    <input type="date" name="booking_date" required>
+
+    <input type="hidden" name="price" placeholder="Service Price" value="{{ price }}" readonly>
+    <p>Price: ₹{{ price }}</p>
+
+
+        <select name="service" required>
+
+    {% if not service %}
+        <option value="">Select service</option>
+    {% endif %}
+
+    <!-- Electrician -->
+    <option value="Wiring Work" {{ 'selected' if service=='Wiring Work' else '' }}>⚡ Wiring Work</option>
+    <option value="Fan Installation" {{ 'selected' if service=='Fan Installation' else '' }}>⚡ Fan Installation</option>
+    <option value="Light Repair" {{ 'selected' if service=='Light Repair' else '' }}>⚡ Light Repair</option>
+    <option value="Switch Replacement" {{ 'selected' if service=='Switch Replacement' else '' }}>⚡ Switch Replacement</option>
+    <option value="Socket Repair" {{ 'selected' if service=='Socket Repair' else '' }}>⚡ Socket Repair</option>
+
+    <!-- Plumber -->
+    <option value="Tap Repair" {{ 'selected' if service=='Tap Repair' else '' }}>🚰 Tap Repair</option>
+    <option value="Pipe Leakage Fix" {{ 'selected' if service=='Pipe Leakage Fix' else '' }}>🚰 Pipe Leakage Fix</option>
+    <option value="Bathroom Fitting" {{ 'selected' if service=='Bathroom Fitting' else '' }}>🚰 Bathroom Fitting</option>
+    <option value="Water Motor Repair" {{ 'selected' if service=='Water Motor Repair' else '' }}>🚰 Water Motor Repair</option>
+
+    <!-- AC -->
+    <option value="AC Installation" {{ 'selected' if service=='AC Installation' else '' }}>❄️ AC Installation</option>
+    <option value="AC General Service" {{ 'selected' if service=='AC General Service' else '' }}>❄️ AC General Service</option>
+
+    <!-- Carpenter -->
+    <option value="Furniture Repair" {{ 'selected' if service=='Furniture Repair' else '' }}>🪚 Furniture Repair</option>
+    <option value="Custom Furniture" {{ 'selected' if service=='Custom Furniture' else '' }}>🪚 Custom Furniture</option>
+    <option value="Wooden Doors and Windows" {{ 'selected' if service=='Wooden Doors and Windows' else '' }}>🪚 Wooden Doors and Windows</option>
+
+    <!-- Cleaning -->
+    <option value="Home Cleaning" {{ 'selected' if service=='Home Cleaning' else '' }}>🧹 Home Cleaning</option>
+    <option value="Office Cleaning" {{ 'selected' if service=='Office Cleaning' else '' }}>🧹 Office Cleaning</option>
+    <option value="Bathroom Cleaning" {{ 'selected' if service=='Bathroom Cleaning' else '' }}>🧹 Bathroom Cleaning</option>
+
+</select>
+
+        <button type="submit">Book Service</button>
+    </form>
+</div>
+
+</body>
+</html>

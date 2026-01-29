@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | Provider Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            color: white;
+        }
+
+        .header {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff0055;
+        }
+
+        .logo { font-size: 32px; font-weight: bold; color: #ff0055; }
+        .logo span { color: #00ffaa; }
+        .container { padding: 30px; }
+        h2, h3 { color: #00ffaa; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        th { background: #ff0055; color: black; }
+        button {
+            padding: 6px 14px;
+            background: #00ffaa;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background: #ff0055; color: white; }
+
+        .status-pending { color: orange; font-weight: bold; }
+        .status-accepted { color: #00ffaa; font-weight: bold; }
+        .status-completed { color: #4cff4c; font-weight: bold; }
+        .status-rejected { color: red; font-weight: bold; }
+
+        .logout {
+            margin-top: 20px;
+            display: inline-block;
+            color: #ff0055;
+            text-decoration: none;
+        }
+
+        /* Feedback styles */
+        .feedback-table th, .feedback-table td { text-align: left; }
+        .rating { color: #ffd700; font-weight: bold; }
+        .no-feedback { text-align: center; font-style: italic; color: #ccc; }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">Service<span>Hub</span></div>
+</div>
+
+<div class="container">
+
+<h2>Assigned Service Requests</h2>
+
+<table>
+    <tr>
+        <th>User</th>
+        <th>Service</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Service Date</th>
+        <th>Admin Commission</th>
+        <th>Your Earnings</th>
+        <th>Action</th>
+        <th>Status</th>
+    </tr>
+
+    {% for b in bookings %}
+    {% set status = b.status|lower|trim %}
+    <tr>
+        <td>{{ b.user_name }}</td>
+        <td>{{ b.service_name }}</td>
+        <td>₹{{ b.price }}</td>
+        <td>{{ b.user_address }}</td>
+        <td>{{ b.user_mobile }}</td>
+        <td>{{ b.booking_date }}</td>
+
+        <!-- Admin Commission -->
+        <td>{% if status == 'completed' %}₹{{ b.admin_commission }}{% else %}-{% endif %}</td>
+
+        <!-- Provider Earnings -->
+        <td>{% if status == 'completed' %}₹{{ b.provider_amount }}{% else %}-{% endif %}</td>
+
+        <!-- Action -->
+        <td>
+            {% if status == 'pending' %}
+                <a href="{{ url_for('update_booking', booking_id=b.id, status='Accepted') }}">
+                    <button>Accept</button>
+                </a>
+                <a href="{{ url_for('update_booking', booking_id=b.id, status='Rejected') }}">
+                    <button>Reject</button>
+                </a>
+            {% elif status == 'accepted' %}
+                <form action="{{ url_for('complete_booking', booking_id=b.id) }}" method="POST">
+                    <button type="submit">Complete</button>
+                </form>
+            {% else %}
+                —
+            {% endif %}
+        </td>
+
+        <!-- Status -->
+        <td class="
+            {% if status == 'pending' %}status-pending
+            {% elif status == 'accepted' %}status-accepted
+            {% elif status == 'completed' %}status-completed
+            {% elif status == 'rejected' %}status-rejected
+            {% endif %}
+        ">{{ b.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/logout" class="logout">Exit (Logout)</a>
+
+<h3 style="color:#00ffaa">Pay Admin Commission</h3>
+{% if admin_payment %}
+<div style="background:#111;padding:15px;border-radius:10px">
+    <p><b>UPI ID:</b> {{ admin_payment.upi_id }}</p>
+    <p><b>Bank:</b> {{ admin_payment.bank_name }}</p>
+    <p><b>Account No:</b> {{ admin_payment.account_number }}</p>
+    <p><b>IFSC:</b> {{ admin_payment.ifsc }}</p>
+</div>
+{% else %}
+<p>Admin payment details not available</p>
+{% endif %}
+
+
+
+</div>
+</body>
+</html>

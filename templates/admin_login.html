@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | Admin Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .login-box {
+            background: #111;
+            border: 2px solid #ff0055;
+            border-radius: 15px;
+            padding: 35px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff0055;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: #00ffaa;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #ff0055;
+        }
+
+        input {
+            width: 92%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #000;
+            color: white;
+        }
+
+        input:focus {
+            border-color: #ff0055;
+            outline: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #ff0055;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00ffaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">Service<span>Hub</span></div>
+    <div class="tagline">Admin Zone • Control the App</div>
+
+    <h2>Admin Login</h2>
+
+    <form method="post">
+        <input type="text" name="username" placeholder="Admin Username" required>
+        <input type="password" name="password" placeholder="Admin Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AC Services</title>
+<style>
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h2 {
+    color: #ff0055;
+}
+.box {
+    display: inline-block;
+    width: 260px;
+    margin: 20px;
+    background: #111;
+    border: 2px solid #00ffaa;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 15px #00ffaa;
+}
+img {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+h3 {
+    color: #00ffaa;
+}
+.price {
+    color: #ff0055;
+    font-size: 18px;
+    font-weight: bold;
+}
+button {
+    background: #ff0055;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #ff3399;
+    transform: scale(1.05);
+}
+
+.back {
+    display: block;              /* important */
+    width: fit-content;
+    margin: 50px auto 30px;      /* auto = center */
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #ff0055;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.back:hover {
+    background: #ff0055;
+    color: #000;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>❄️ AC Services</h2>
+<p class="subtitle">Professional AC services at affordable prices</p>
+
+
+<div class="box">
+    <img src="https://webtk.sfastservices.com/blogimg/split-ac-service%20Sfastservices.jpg" alt="AC General Service">
+    <h3>AC General Service</h3>
+    <p class="price">₹600</p>
+    <button onclick="bookService('AC General Service')">Book Now</button>
+</div>
+
+<div class="box">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.rDA3J1n7ilEyFioF3FYUggHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="AC Installation">
+    <h3>AC Installation</h3>
+    <p class="price">₹1500</p>
+    <button onclick="bookService('AC Installation')">Book Now</button>
+</div>
+
+<script>
+function bookService(serviceName){
+    window.location.href = "/book_service?service=" + encodeURIComponent(serviceName);
+}
+</script>
+
+<a href="/home" class="back">⬅ Back to Home</a>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | Admin Payment Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            color: white;
+        }
+
+        .header {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff0055;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff0055;
+        }
+
+        .logo span {
+            color: #00ffaa;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .payment-box {
+            width: 450px;
+            padding: 25px;
+            background: #111;
+            border: 2px solid #ff0055;
+            border-radius: 18px;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+        }
+
+        .payment-box h2 {
+            color: #00ffaa;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .payment-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            background: #000;
+            color: white;
+            font-size: 14px;
+        }
+
+        .payment-form input::placeholder {
+            color: #aaa;
+        }
+
+        .payment-form button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            background: #00ffaa;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .payment-form button:hover {
+            background: #ff0055;
+        }
+
+        .payment-display {
+            margin-top: 25px;
+            padding: 15px;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .payment-display h3 {
+            color: #ff0055;
+            margin-bottom: 10px;
+        }
+
+        .payment-display p {
+            margin: 6px 0;
+            color: #ccc;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #00ffaa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">Service<span>Hub</span></div>
+</div>
+
+<div class="container">
+
+    <div class="payment-box">
+        <h2>💳 Admin Payment Details</h2>
+
+        <form method="post" class="payment-form">
+            <input type="text" name="upi_id" placeholder="UPI ID (e.g. admin@upi)" required>
+            <input type="text" name="bank_name" placeholder="Bank Name" required>
+            <input type="text" name="account_number" placeholder="Account Number" required>
+            <input type="text" name="ifsc" placeholder="IFSC Code" required>
+            <button type="submit">Save Payment Details</button>
+        </form>
+
+        {% if payment %}
+        <div class="payment-display">
+            <h3>📌 Current Payment Info</h3>
+            <p><b>UPI ID:</b> {{ payment.upi_id }}</p>
+            <p><b>Bank:</b> {{ payment.bank_name }}</p>
+            <p><b>Account:</b> {{ payment.account_number }}</p>
+            <p><b>IFSC:</b> {{ payment.ifsc }}</p>
+        </div>
+        {% endif %}
+
+        <a href="/admin_dashboard" class="back">⬅ Back to Dashboard</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | User Register</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .register-box {
+            background: #111;
+            border: 2px solid #00ffaa;
+            border-radius: 15px;
+            padding: 35px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.7);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff0055;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: #00ffaa;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00ffaa;
+        }
+
+        input {
+            width: 92%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #000;
+            color: white;
+        }
+
+        input:focus {
+            border-color: #00ffaa;
+            outline: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #00ffaa;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff0055;
+            color: #000;
+        }
+
+        .link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #ff0055;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-box">
+
+    <div class="logo">Service<span>Hub</span></div>
+    <div class="tagline">Join the App • Get Trusted Services</div>
+
+    <h2>User Registration</h2>
+
+    <form method="post">
+        <input type="text" name="name" placeholder="Enter Full Name" required>
+        <input type="email" name="email" placeholder="Enter Email Address" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+        <input type="text" name="mobile"placeholder="Enter Mobile Number" id="mobile" required>
+        <input type="text" name="address" placeholder="Enter Address" required>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="link">
+        Do you already have an account? <a href="/user_login">Login here</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ServiceHub | About Us</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            color: #ddd;
+        }
+
+        /* HEADER */
+        .header {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff0055;
+            animation: slideDown 1s ease;
+        }
+
+        .logo {
+            font-size: 34px;
+            font-weight: bold;
+            color: #ff0055;
+        }
+
+        .logo span { color: #00ffaa; }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #111;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(255,0,85,0.35);
+            animation: fadeIn 1.2s ease;
+        }
+
+        h1, h2 {
+            color: #00ffaa;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        /* ICON SECTIONS */
+        .icon-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .icon-card {
+            background: #0d0d0d;
+            padding: 25px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px rgba(0,255,170,0.4);
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .icon-card h3 {
+            color: #ff0055;
+            margin-bottom: 10px;
+        }
+
+        /* HIGHLIGHT */
+        .highlight {
+            background: #0b0b0b;
+            padding: 25px;
+            border-left: 4px solid #ff0055;
+            border-radius: 12px;
+            margin: 35px 0;
+        }
+
+        /* BUTTON */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 26px;
+            background: #00ffaa;
+            color: black;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #ff0055;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="header">
+    <div class="logo">Service<span>Hub</span></div>
+</div>
+
+<div class="container">
+
+    <h1>About ServiceHub</h1>
+
+    <p>
+        <b>ServiceHub</b> is a comprehensive digital service booking platform
+        designed to bridge the gap between customers and skilled service providers.
+        We focus on delivering reliable, affordable, and timely home and office
+        services through a secure and easy-to-use system.
+    </p>
+
+    <p>
+        From booking an electrician to scheduling AC servicing or home cleaning,
+        ServiceHub ensures a smooth experience with transparent pricing,
+        verified professionals, and admin-monitored operations.
+    </p>
+
+    <div class="highlight">
+        <h2>🚀 Our Vision</h2>
+        <p>
+            Our vision is to become a trusted one-stop solution for all essential
+            services by leveraging technology to improve efficiency, accountability,
+            and customer satisfaction.
+        </p>
+        <p>
+            We aim to empower service providers with fair earning opportunities
+            while offering customers consistent quality and peace of mind.
+        </p>
+    </div>
+
+    <h2>💡 What We Do</h2>
+
+    <p>
+        ServiceHub allows users to browse services, select preferred service dates,
+        view pricing in advance, and track booking status in real time.
+        Providers can accept, reject, and complete service requests directly
+        through their dashboard.
+    </p>
+
+    <div class="icon-section">
+        <div class="icon-card">
+            <div class="icon">🔌</div>
+            <h3>Electrical Services</h3>
+            <p>
+                Wiring work, fan installation, switch replacement,
+                socket repair, and lighting solutions handled by
+                experienced electricians.
+            </p>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon">🚰</div>
+            <h3>Plumbing Services</h3>
+            <p>
+                Tap repairs, pipe leakage fixes, bathroom fittings,
+                and water motor servicing with quick response times.
+            </p>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon">❄</div>
+            <h3>AC Services</h3>
+            <p>
+                AC installation, general servicing, maintenance,
+                and troubleshooting for residential and office spaces.
+            </p>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon">🪚</div>
+            <h3>Carpentry Services</h3>
+            <p>
+                Furniture repair, custom furniture design,
+                wooden doors, windows, and interior woodwork.
+            </p>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon">🧹</div>
+            <h3>Cleaning Services</h3>
+            <p>
+                Home, office, and bathroom cleaning services
+                using safe and effective cleaning practices.
+            </p>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <h2>⭐ Why Choose ServiceHub?</h2>
+        <ul>
+            <li>Verified and registered service professionals</li>
+            <li>Clear pricing before booking</li>
+            <li>Admin-controlled service flow</li>
+            <li>Fair and transparent commission system</li>
+            <li>User-friendly dashboards for all roles</li>
+            <li>Easy cancellation before provider acceptance</li>
+        </ul>
+    </div>
+
+    <h2>🔐 Platform Security & Transparency</h2>
+    <p>
+        ServiceHub maintains transparency by tracking every booking from
+        request to completion. Admin oversight ensures accountability,
+        while users and providers can clearly see service status,
+        earnings, and commissions.
+    </p>
+
+    <h2>🔮 Future Plans</h2>
+    <ul>
+        <li>Online payment integration</li>
+        <li>Service ratings and reviews</li>
+        <li>Live booking and provider tracking</li>
+        <li>Mobile application support</li>
+        <li>Advanced analytics for admin</li>
+    </ul>
+
+        <!-- Existing content above ... -->
+
+    <h2>📞 Contact Us</h2>
+    <div class="highlight">
+        <p>
+            <b>Email:</b> support@servicehub.com<br>
+            <b>Phone:</b> +91 98765 43210<br>
+            <b>Address:</b> 123 ServiceHub Lane, Bangalore, India
+        </p>
+        <p>
+            For any queries, support, or feedback, feel free to reach out to our
+            team. We are here to help you get the best service experience.
+        </p>
+    </div>
+
+
+
+    <a href="{{ url_for('home') }}" class="back-btn">← Back to Home</a>
+
+</div>
+
+
+<footer>
+    © 2026 ServiceHub — Quality service at your doorstep
+</footer>
+
+</body>
+</html>

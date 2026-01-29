@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | User Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .login-box {
+            background: #111;
+            border: 2px solid #ff0055;
+            border-radius: 15px;
+            padding: 35px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.7);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff0055;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: #00ffaa;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #ff0055;
+        }
+
+        input {
+            width: 92%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background: #000;
+            color: white;
+        }
+
+        input:focus {
+            border-color: #ff0055;
+            outline: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #ff0055;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00ffaa;
+        }
+
+        .link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #00ffaa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">Service<span>Hub</span></div>
+    <div class="tagline">Enter the App • Book Your Service</div>
+
+    <h2>User Login</h2>
+
+    <form method="post">
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="link">
+        New user? <a href="/user_register">Register here</a>
+    </div>
+
+</div>
+
+</body>
+</html>

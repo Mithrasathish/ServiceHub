@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceHub | My Bookings</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #000000, #1a1a1a);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #ff0055;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff0055;
+        }
+
+        .logo span {
+            color: #00ffaa;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00ffaa;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #111;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        th {
+            background: #ff0055;
+            color: black;
+        }
+
+        .status-pending { color: orange; font-weight: bold; }
+        .status-accepted { color: #00ffaa; font-weight: bold; }
+        .status-completed { color: #4cff4c; font-weight: bold; }
+        .status-cancelled { color: red; font-weight: bold; }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #00ffaa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            color: #ff0055;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">Service<span>Hub</span></div>
+</div>
+
+<div class="container">
+    <h2>My Bookings</h2>
+
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Provider</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for b in bookings %}
+        <tr>
+            <td>{{ b.service_name }}</td>
+            <td>{{ b.provider_name or "Not Assigned" }}</td>
+            <td>₹{{ b.price }}</td>
+            <td>{{ b.booking_date }}</td>
+            <td class="
+                {% if b.status == 'Pending' %}status-pending
+                {% elif b.status == 'Accepted' %}status-accepted
+                {% elif b.status == 'Completed' %}status-completed
+                {% elif b.status == 'Cancelled' %}status-cancelled
+                {% endif %}
+            ">
+                {{ b.status }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/home" class="back">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Carpenter Services</title>
+<style>
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h2 {
+    color: #ff0055;
+}
+.box {
+    display: inline-block;
+    width: 260px;
+    margin: 20px;
+    background: #111;
+    border: 2px solid #00ffaa;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 15px #00ffaa;
+}
+img {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+h3 {
+    color: #00ffaa;
+}
+.price {
+    color: #ff0055;
+    font-size: 18px;
+    font-weight: bold;
+}
+button {
+    background: #ff0055;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #ff3399;
+    transform: scale(1.05);
+}
+
+.back {
+    display: block;              /* important */
+    width: fit-content;
+    margin: 50px auto 30px;      /* auto = center */
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #ff0055;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.back:hover {
+    background: #ff0055;
+    color: #000;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>🛠️ Carpenter Services</h2>
+<p class="subtitle">Professionl services at affordable prices</p>
+
+
+<div class="box">
+    <img src=https://img1.exportersindia.com/product_images/bc-full/2020/3/6281041/furniture-repairing-services-1583389842-5325843.jpeg>
+    <h3>Furniture Repair</h3>
+    <p class="price">₹800</p>
+    <button onclick="bookService('Furniture Repair')">Book Now</button>
+</div>
+
+<div class="box">
+    <img src="https://www.carpenter-gauteng.co.za/wp-content/uploads/2025/01/Custom-Furniture-Making-Prices-1024x585.jpg">
+    <h3>Custom Furniture</h3>
+    <p class="price">₹2000</p>
+    <button onclick="bookService('Custom Furniture')">Book Now</button>
+</div>
+
+<div class="box">
+    <img src=https://www.monarchcustomdoors.com/wp-content/uploads/2025/03/6-1024x1024.webp>
+    <h3>Wooden Doors & Windows</h3>
+    <p class="price">₹1500</p>
+    <button onclick="bookService('Wooden Doors & Windows')">Book Now</button>
+</div>
+
+<script>
+function bookService(serviceName){
+    // Redirect to book_service with service name
+    window.location.href = "/book_service?service=" + encodeURIComponent(serviceName);
+}
+</script>
+
+<a href="/home" class="back">⬅ Back to Home</a>
+
+</body>
+</html>
